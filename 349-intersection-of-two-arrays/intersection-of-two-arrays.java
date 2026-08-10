@@ -1,48 +1,22 @@
 class Solution {
 
-    public int[] intersection(int[] nums1,
-                              int[] nums2) {
+    public int[] intersection(int[] nums1,int[] nums2) {
+        HashSet<Integer> set1 = new HashSet<>();
+        HashSet<Integer> set2 = new HashSet<>();
 
-        // Stores unique elements of nums1
-        Set<Integer> set = new HashSet<>();
-
-        // Stores final intersection
-        List<Integer> ans = new ArrayList<>();
-
-        // Add nums1 elements into set
-        for (int num : nums1) {
-
-            set.add(num);
+        for(int i : nums1){
+            set1.add(i);
         }
-
-        // Traverse nums2
-        for (int num : nums2) {
-
-            /*
-             * Common element found
-             */
-
-            if (set.contains(num)) {
-
-                ans.add(num);
-
-                /*
-                 * Remove element
-                 * to avoid duplicates
-                 */
-
-                set.remove(num);
+        for(int j : nums2){
+            if(set1.contains(j)){
+                set2.add(j);
             }
         }
-
-        // Convert list to array
-        int[] result = new int[ans.size()];
-
-        for (int i = 0; i < ans.size(); i++) {
-
-            result[i] = ans.get(i);
+        int[] res = new int [set2.size()];
+        int i=0;
+        for(int n : set2){
+            res[i++]=n;
         }
-
-        return result;
+        return res;
     }
 }
