@@ -1,6 +1,6 @@
 class Solution {
     public int missingInteger(int[] nums) {
-        LinkedHashSet<Integer> res = new LinkedHashSet<>();
+        HashSet<Integer> res = new HashSet<>();
         for (int num : nums){
             res.add(num);
         }
