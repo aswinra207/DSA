@@ -1,9 +1,6 @@
 class Solution {
     public int missingInteger(int[] nums) {
-        HashSet<Integer> res = new HashSet<>();
-        for (int num : nums){
-            res.add(num);
-        }
+        
         int n=nums[0];
         for(int i=1;i<nums.length;i++){
             if(nums[i] == nums[i - 1] + 1){
@@ -13,7 +10,10 @@ class Solution {
             }
             
         }
-
+        HashSet<Integer> res = new HashSet<>();
+        for (int num : nums){
+            res.add(num);
+        }
         while(res.contains(n)){
             n++;
         }
