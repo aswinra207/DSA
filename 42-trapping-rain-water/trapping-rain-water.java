@@ -1,21 +1,22 @@
 class Solution {
-    public int trap(int[] height) {
+    public int trap(int[] h) {
         int l=0;
-        int r=height.length-1;
+        int r=h.length-1;
+        int lmax=h[0];
+        int rmax=h[h.length-1];
         int stored=0;
-        int lmax=height[0];
-        int rmax=height[height.length-1];
         while(l<r){
             if(lmax<=rmax){
                 l++;
-                lmax=Math.max(lmax,height[l]);
-                stored+=(lmax-height[l]);
+                lmax=Math.max(lmax,h[l]);
+                stored+=(lmax-h[l]);
             }else{
                 r--;
-                rmax=Math.max(rmax,height[r]);
-                stored+=(rmax-height[r]);
-
+                rmax=Math.max(rmax,h[r]);
+                stored+=(rmax-h[r]);
             }
-        }return stored;
+        }
+        return stored;
+        
     }
 }
