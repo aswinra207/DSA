@@ -1,14 +1,18 @@
 class Solution {
     public int singleNonDuplicate(int[] nums) {
-        HashMap<Integer,Integer> res = new HashMap<>();
-        for(int i : nums){
-            res.put(i,res.getOrDefault(i,0)+1);
-        }
-        for(Map.Entry<Integer,Integer> entry : res.entrySet()){
-            if(entry.getValue()<=1){
-                return entry.getKey();
+        int left=0;
+        int right=nums.length-1;
+        
+        while(left<right){
+            int mid=left+(right-left)/2;
+            if(mid%2==0 && nums[mid]==nums[mid+1] || (mid%2==1 && nums[mid]==nums[mid-1])){
+                left=mid+1;
+            }
+            else{
+                right=mid;
             }
         }
-        return -1;
+        return nums[left];
+        
     }
 }
