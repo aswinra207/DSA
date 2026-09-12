@@ -1,14 +1,9 @@
 class Solution {
     public int strStr(String hay, String nee) {
-        int h=hay.length();
-        int n=nee.length();
-        for(int i=0;i<=h-n;i++){
-            int j=0;
-            while(j<n && hay.charAt(i+j)==nee.charAt(j)){
-                j++;
+        for(int i=0,j=nee.length();j<=hay.length();i++,j++){
+            if(hay.substring(i,j).equals(nee)){
+                return i;
             }
-            if(j==n) return i;
-
         }
         return -1;
     }
